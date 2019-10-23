@@ -4,16 +4,16 @@ This repository contains a PyTorch implementation of the CBN layer, as well as s
 
 ## Results with this code
 
-| Backbone      | Method       | Norm | AP<sup>box</sup> | AP<sup>box</sup><sub>0.50</sub> | AP<sup>box</sup><sub>0.75</sub> | AP<sup>mask</sup> | AP<sup>mask</sup><sub>0.50</sub> | AP<sup>mask</sup><sub>0.75</sub> | Download |
+| Backbone      | Method       | Norm | AP<sup>b</sup> | AP<sup>b</sup><sub>0.50</sub> | AP<sup>b</sup><sub>0.75</sub> | AP<sup>m</sup> | AP<sup>m</sup><sub>0.50</sub> | AP<sup>m</sup><sub>0.75</sub> | Download |
 |:-------------:|:------------:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| R-50-FPN | Faster R-CNN | -      | 36.8 | 57.9 | 40.0 | - | - | - | model |
-| R-50-FPN | Faster R-CNN | SyncBN | 37.6 | 58.8 | 40.8 | - | - | - | model |
-| R-50-FPN | Faster R-CNN | GN     | 37.8 | 59.2 | 41.0 | - | - | - | model |
-| R-50-FPN | Faster R-CNN | CBN    | 37.6 | 58.5 | 40.8 | - | - | - | model |
-| R-50-FPN | Mask R-CNN | -      | 37.8 | 58.7 | 41.3 | 34.1 | 55.4 | 36.3 | model |
-| R-50-FPN | Mask R-CNN | SyncBN | 38.5 | 59.3 | 41.9 | 34.8 | 56.0 | 37.5 | model |
-| R-50-FPN | Mask R-CNN | GN     | 38.6 | 59.3 | 42.2 | 35.0 | 56.7 | 37.3 | model |
-| R-50-FPN | Mask R-CNN | CBN    | 38.5 | 59.1 | 42.0 | 34.7 | 56.1 | 37.2 | model |
+| R-50-FPN | Faster R-CNN | -      | 36.8 | 57.9 | 39.8 | - | - | - | model |
+| R-50-FPN | Faster R-CNN | SyncBN | 37.5 | 58.4 | 40.6 | - | - | - | model |
+| R-50-FPN | Faster R-CNN | GN     | 37.7 | 59.2 | 41.2 | - | - | - | model |
+| R-50-FPN | Faster R-CNN | CBN    | 37.6 | 58.5 | 40.9 | - | - | - | model |
+| R-50-FPN | Mask R-CNN | -      | 37.6 | 58.5 | 41.0 | 34.0 | 55.2 | 36.2 | model |
+| R-50-FPN | Mask R-CNN | SyncBN | 38.5 | 58.9 | 42.0 | 34.3 | 55.7 | 36.7 | model |
+| R-50-FPN | Mask R-CNN | GN     | 38.5 | 59.4 | 41.8 | 35.0 | 56.4 | 37.3 | model |
+| R-50-FPN | Mask R-CNN | CBN    | 38.4 | 58.9 | 42.2 | 34.7 | 55.9 | 37.0 | model |
 
 *All results are trained with 1x schedule. Normalization layers of backbone are fixed by default.
 
@@ -23,6 +23,16 @@ Please refer to [INSTALL.md](INSTALL.md) for installation and dataset preparatio
 
 
 ## Demo
+
+### Test
+Download the pretrained model
+```bash
+# Faster R-CNN
+python tools/test.py {configs_file} {downloaded model} --gpus 4 --out {tmp.pkl} --eval bbox
+# Mask R-CNN
+python tools/test.py {configs_file} {downloaded model} --gpus 4 --out {tmp.pkl} --eval bbox segm
+```
+
 
 ### Train Mask R-CNNN
 One node with 4GPUs:
@@ -40,7 +50,8 @@ One node with 4GPUs:
 - [x] Clean up mmdetection code base
 - [x] Add CBN layer support
 - [x] Add default configs for training
-- [ ] Upload pretrained models for quick test demo
+- [x] Upload pretrained models for quick test demo
+- [ ] Provide a conv_module of Conv & CBN
 - [ ] Speedup CBN layer with CUDA/CUDNN
 
 

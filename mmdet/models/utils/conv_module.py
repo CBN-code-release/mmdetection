@@ -79,7 +79,7 @@ class ConvModule(nn.Module):
         if self.activate_last:
             x = self.conv(x)
             if norm and self.with_norm:
-                if 'CBN-1' in self.normalize['type']:
+                if 'CBN' in self.normalize['type']:
                     x = self.norm(x, self.conv.weight)
                     x = x.contiguous()
                 else:
@@ -88,7 +88,7 @@ class ConvModule(nn.Module):
                 x = self.activate(x)
         else:
             if norm and self.with_norm:
-                if 'CBN-1' in self.normalize['type']:
+                if 'CBN' in self.normalize['type']:
                     raise Valueerror('FPN-CONVMODULE-activate_last should be true!')
                 else:
                     x = self.norm(x)

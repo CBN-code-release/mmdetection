@@ -6,6 +6,7 @@
 - Python 3.4+
 - PyTorch 1.0
 - Cython
+- [Apex](https://github.com/NVIDIA/apex)
 - [mmcv](https://github.com/open-mmlab/mmcv) >= 0.2.2
 
 ### Install mmdetection
@@ -23,7 +24,7 @@ c. Compile cuda extensions.
 ```shell
 cd mmdetection
 pip install cython  # or "conda install cython" if you prefer conda
-./compile.sh  # or "PYTHON=python3 ./compile.sh" if you use system python3 without virtual environments
+bash ./compile.sh  # or "PYTHON=python3 bash ./compile.sh" if you use system python3 without virtual environments
 ```
 
 d. Install mmdetection (other dependencies will be installed automatically).

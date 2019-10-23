@@ -191,7 +191,7 @@ class Bottleneck(nn.Module):
         def _inner_forward(x):
             identity = x
             out = self.conv1(x)
-            if 'CBN-1' in self.normalize['type']:
+            if 'CBN' in self.normalize['type']:
                 out = self.norm1(out, self.conv1.weight)
             else:
                 out = self.norm1(out)
@@ -207,20 +207,20 @@ class Bottleneck(nn.Module):
             else:
                 offset = self.conv2_offset(out)
                 out = self.conv2(out, offset)
-            if 'CBN-1' in self.normalize['type']:
+            if 'CBN' in self.normalize['type']:
                 out = self.norm2(out, self.conv2.weight)
             else:
                 out = self.norm2(out)
             out = self.relu(out)
 
             out = self.conv3(out)
-            if 'CBN-1' in self.normalize['type']:
+            if 'CBN' in self.normalize['type']:
                 out = self.norm3(out, self.conv3.weight)
             else:
                 out = self.norm3(out)
 
             if self.downsample is not None:
-                if 'CBN-1' in self.normalize['type']:
+                if 'CBN' in self.normalize['type']:
                     identity = self.downsample[0](x)
                     identity = self.downsample[1](identity, self.downsample[0].weight)
                 else:
@@ -444,7 +444,7 @@ class ResNet(nn.Module):
             raise TypeError('pretrained must be a str or None')
 
     def forward(self, x):
-        if 'CBN-1' in self.normalize['type']:
+        if 'CBN' in self.normalize['type']:
             x = self.conv1(x)
             x = self.norm1(x, self.conv1.weight)
         else:
