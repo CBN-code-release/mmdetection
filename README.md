@@ -6,14 +6,14 @@ This repository contains a PyTorch implementation of the CBN layer, as well as s
 
 | Backbone      | Method       | Norm | AP<sup>b</sup> | AP<sup>b</sup><sub>0.50</sub> | AP<sup>b</sup><sub>0.75</sub> | AP<sup>m</sup> | AP<sup>m</sup><sub>0.50</sub> | AP<sup>m</sup><sub>0.75</sub> | Download |
 |:-------------:|:------------:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| R-50-FPN | Faster R-CNN | -      | 36.8 | 57.9 | 39.8 | - | - | - | model |
-| R-50-FPN | Faster R-CNN | SyncBN | 37.5 | 58.4 | 40.6 | - | - | - | model |
-| R-50-FPN | Faster R-CNN | GN     | 37.7 | 59.2 | 41.2 | - | - | - | model |
-| R-50-FPN | Faster R-CNN | CBN    | 37.6 | 58.5 | 40.9 | - | - | - | model |
-| R-50-FPN | Mask R-CNN | -      | 37.6 | 58.5 | 41.0 | 34.0 | 55.2 | 36.2 | model |
-| R-50-FPN | Mask R-CNN | SyncBN | 38.5 | 58.9 | 42.0 | 34.3 | 55.7 | 36.7 | model |
-| R-50-FPN | Mask R-CNN | GN     | 38.5 | 59.4 | 41.8 | 35.0 | 56.4 | 37.3 | model |
-| R-50-FPN | Mask R-CNN | CBN    | 38.4 | 58.9 | 42.2 | 34.7 | 55.9 | 37.0 | model |
+| R-50-FPN | Faster R-CNN | -      | 36.8 | 57.9 | 39.8 | - | - | - | [model](https://drive.google.com/file/d/1BVAFDjJXLDdDX6F0WscvFbnCXY37uZUp/view?usp=sharing) |
+| R-50-FPN | Faster R-CNN | SyncBN | 37.5 | 58.4 | 40.6 | - | - | - | [model](https://drive.google.com/file/d/1I0EdPYUUUJfCNb_HMc_EJqD4WsZAeXK1/view?usp=sharing) |
+| R-50-FPN | Faster R-CNN | GN     | 37.7 | 59.2 | 41.2 | - | - | - | [model](https://drive.google.com/file/d/1SnGdTSFN0cY6zYiYxdKCZXCronFLJZhp/view?usp=sharing) |
+| R-50-FPN | Faster R-CNN | CBN    | 37.6 | 58.5 | 40.9 | - | - | - | [model](https://drive.google.com/file/d/17tIX0hZVPisJpMpsHRlT86ik8DrIV4XG/view?usp=sharing) |
+| R-50-FPN | Mask R-CNN | -      | 37.6 | 58.5 | 41.0 | 34.0 | 55.2 | 36.2 | [model](https://drive.google.com/file/d/1YyjL4nLnRvc0VnEN6741av6pjoCYz3va/view?usp=sharing) |
+| R-50-FPN | Mask R-CNN | SyncBN | 38.5 | 58.9 | 42.0 | 34.3 | 55.7 | 36.7 | [model](https://drive.google.com/file/d/1w5fzfpItoXGgE8CkuY_hniPhlDpa4I17/view?usp=sharing) |
+| R-50-FPN | Mask R-CNN | GN     | 38.5 | 59.4 | 41.8 | 35.0 | 56.4 | 37.3 | [model](https://drive.google.com/file/d/1BTrHh-4Xohhs3JuZaTYbJzegJ4SV01qx/view?usp=sharing) |
+| R-50-FPN | Mask R-CNN | CBN    | 38.4 | 58.9 | 42.2 | 34.7 | 55.9 | 37.0 | [model](https://drive.google.com/file/d/1qMxyW8RDJt-LxuNhMj_waK482WDvpddo/view?usp=sharing) |
 
 *All results are trained with 1x schedule. Normalization layers of backbone are fixed by default.
 
